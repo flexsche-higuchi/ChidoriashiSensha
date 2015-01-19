@@ -1,19 +1,18 @@
-Name
+ChidoriashiSensha
+========
 
-Overview
+*
+*
+*
 
-## Description
+Demo
+--------
 
-## Demo
+Requirement
+--------
 
-## Requirement
+Usage
+--------
 
-## Usage
-
-## Install
-
-## Contribution
-
-## Licence
-
-## Author
+Author
+--------
