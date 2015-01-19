@@ -6,7 +6,9 @@ ChidoriashiSensha
 * 飲んでいるので当然千鳥足です。
 * 障害物があるとビビッて後ずさりします。
 * アルコールが切れるまで走り続けます。
-* MIJS(http://www.mijs.jp/)製品技術委員会の冬合宿の成果物です。
+* [MIJS](http://www.mijs.jp/)製品技術委員会の冬合宿の成果物です。
+
+![front](/image/sensha1.jpg)
 
 Demo
 --------
