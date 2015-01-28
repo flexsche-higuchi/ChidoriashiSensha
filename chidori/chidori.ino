@@ -25,17 +25,19 @@ void setup(){
   pinMode(motorD,OUTPUT); //信号用ピン
 }
 
-void forward(int AB, int CD)
+//前進
+void forward()
 {
   digitalWrite(motorA,HIGH);
   digitalWrite(motorB,LOW);
   digitalWrite(motorC,HIGH);
   digitalWrite(motorD,LOW);
 
-  analogWrite(PWM_motAB,AB); 
-  analogWrite(PWM_motCD,CD); 
+  analogWrite(PWM_motAB,255); 
+  analogWrite(PWM_motCD,255); 
 }
 
+//千鳥足で前進
 void chidoriForward()
 {
   digitalWrite(motorA,HIGH);
@@ -54,32 +56,16 @@ void chidoriForward()
   tick = (tick + 1) % 40;
 }
 
-void chidoriForward2()
-{
-  tick++;
-  if (tick == 120)
-  {
-    tick = 0;
-  }
-  
-  digitalWrite(motorA,HIGH);
-  digitalWrite(motorB,LOW);
-  digitalWrite(motorC,HIGH);
-  digitalWrite(motorD,LOW);
-
-  analogWrite(PWM_motAB,240-tick); 
-  analogWrite(PWM_motCD,120+tick); 
-}
-
-void backward(int AB, int CD)
+//後退
+void backward()
 {
   digitalWrite(motorA,LOW);
   digitalWrite(motorB,HIGH);
   digitalWrite(motorC,LOW);
   digitalWrite(motorD,HIGH);
 
-  analogWrite(PWM_motAB,AB); 
-  analogWrite(PWM_motCD,CD); 
+  analogWrite(PWM_motAB,255); 
+  analogWrite(PWM_motCD,255); 
 }
 
 void _stop()
@@ -92,34 +78,35 @@ void _stop()
 }
 
 void loop(){
+  //アルコールセンサの値を読む
   AclVal = analogRead(ALC);
   Serial.print("alc ");
   Serial.println(AclVal);
 
+  //超音波センサで距離を測定
   digitalWrite(Trig, LOW);
   delayMicroseconds(1);
   digitalWrite(Trig, HIGH);
   delayMicroseconds(1);
   digitalWrite(Trig, LOW);
-  Duration = pulseIn(Echo, HIGH);
+  Duration = pulseIn(Echo, HIGH);    //発信してから受け取るタイムラグ
   Serial.print(Duration);
   Serial.print(" us ");
   if (Duration > 0) {
     Distance = Duration / 2;
-    Distance = Distance * 340 * 100 / 1000000; // ultrasonic speed is 340m/s = 34000cm/s = 0.034cm///us 
+    Distance = Distance * 340 * 100 / 1000000; //時速から距離に換算cm
     Serial.print(Distance);
     Serial.println(" cm");
   }
   
   if(AclVal <= 200){
-    _stop();
+    _stop();    //アルコールが切れたら止まる
   }
   else{
     if(Distance <= 10)
-      backward(255, 255);
+      backward();    //障害物があると後ずさり
     else
-      chidoriForward();
- //     forward(255, 255);
+      chidoriForward();    //アルコールがある限り千鳥足で歩く
   }
   delay(200);
 }
