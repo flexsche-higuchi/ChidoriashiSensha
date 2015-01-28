@@ -1,4 +1,4 @@
-ChidoriashiSensha
+アルコール検知で走り 障害物検知で後ずさりする車。
 ========
 
 * Arduino UNOにセンサとモーターを組み合わせて走る戦車を作成しました。
@@ -13,12 +13,4 @@ ChidoriashiSensha
 Demo
 --------
 [youtube](https://www.youtube.com/watch?v=5WC7UDFp4g4)
-
-Requirement
---------
-
-Usage
---------
-
-Author
---------
+[slide](/ChidoriashiSensha.pdf)
