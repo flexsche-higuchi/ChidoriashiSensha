@@ -12,5 +12,6 @@
 
 Demo
 --------
-[youtube](https://www.youtube.com/watch?v=5WC7UDFp4g4)
-[slide](/ChidoriashiSensha.pdf)
+
+*[youtube](https://www.youtube.com/watch?v=5WC7UDFp4g4)
+*[slide](/ChidoriashiSensha.pdf)
